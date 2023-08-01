@@ -1,0 +1,40 @@
+//j=5
+//for(i=;i,<5;1++){
+//j--
+//}
+//
+//The program counter
+//It initializes j variable with value of 5
+@5      //00 It loads a value of 5 into A register
+D=A     //01 It constant 5 into D register
+@0      //02 It load memory address 0
+M=D     //03 It moves the register to address 0
+// Initializes I variable with the value 1
+@1      //04 Load value of 1 into A register
+D=A     //05 It moves about to A to D register
+@1      //06 It loads to memory address 1
+M=D     //07 It moves about D register to address 1
+// Test to be sure it is still less than 5
+@1      //08 Load address 1
+D=M     //09 It moves value in address to D register
+@5      //10 Load constant 5 into register
+D=D-A   //11 It subtracts D register from A register and store in D
+@25     //12 It loads up the program counter 8
+D;JGE   //13 It executes a jump if I is 5
+// Increase the value of i variable
+@1      //15 Load memory address 1
+D=M+1   //16 Decrease memory address stored in D
+@1      //17 Load memory address 1
+M=D     //18 Store D in address 1
+// Decrement the value of j variable
+@0      //19 Load memory address 0
+D=M-1   //20 Decrease memory address and store in D
+@0      //21 Load memory address 0
+M=D     //22 Store D in address 0
+// Execute unconditional jump to the beginning of the loop
+@8      //23 Load program counter address 8
+D;JMP   //24 Execute a jump to 8
+// Unless Loop for end of the program
+@25     //25 Load program counter address 25
+D;JMP   //26
+
